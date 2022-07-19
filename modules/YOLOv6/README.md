@@ -1,4 +1,5 @@
 This has been taken from the [official repository](https://github.com/meituan/YOLOv6). To download the same runs folder so that you can observe the same results. [Click here](https://drive.google.com/drive/folders/1TUOx5du7Pe6b_exRYa_lCEk-BbAofVPz?usp=sharing)
+Refer to notebooks for training.
 
 
 # YOLOv6

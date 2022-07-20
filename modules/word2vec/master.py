@@ -19,11 +19,11 @@ import json
 from utility import text_preprocessing, create_unique_word_dict
 
 # Reading the text from the input folder
-texts = pd.read_csv('input/data2.csv')
+texts = pd.read_csv('input/data3.csv')
 texts = [x for x in texts['text']]
 
 # Defining the window for context
-window = 4
+window = 10
 
 # Creating a placeholder for the scanning of the word list
 word_lists = []
@@ -83,7 +83,7 @@ X = sparse.csr_matrix(X)
 Y = sparse.csr_matrix(Y)
 
 # Defining the size of the embedding
-embed_size = 2
+embed_size = 6
 
 # Defining the neural network
 inp = Input(shape=(X.shape[1],))

@@ -1,5 +1,8 @@
 import re
 import numpy as np
+from nltk.corpus import stopwords
+from nltk.stem import LancasterStemmer
+import string
 
 def create_unique_word_dict(text:list) -> dict:
     """
@@ -21,12 +24,16 @@ def create_unique_word_dict(text:list) -> dict:
 
 def text_preprocessing(
     text:list,
-    punctuations = r'''!()-[]{};:'"\,<>./?@#$%^&*_“~''',
-    stop_words=['and', 'a', 'is', 'the', 'in', 'be', 'will']
     )->list:
     """
     A method to preproces text
     """
+    punctuations = list(string.punctuation)
+    stopWords = set(stopwords.words('english'))
+    lancaster = LancasterStemmer()
+
+    if not isinstance(text, str):
+        return ""
     for x in text.lower(): 
         if x in punctuations: 
             text = text.replace(x, "")
@@ -50,7 +57,22 @@ def text_preprocessing(
     text = [x for x in text if x!='']
 
     # Droping stop words
-    text = [x for x in text if x not in stop_words]
+    text = [x for x in text if x not in stopWords]
+
+    # Stemming
+    text = [lancaster.stem(x) for x in text]
+
+    # Dropping synonyms 
+    mary_synonyms = ['mother', 'virgin', 'madonn', 'immaculate', 'lady', 'queen', 'mariam', 'maria', 'marys']
+    text = [x if x not in mary_synonyms else 'mary' for x in text]
+
+    christ_syn = ['baby', 'babies', 'child', 'babys']
+    text = [x if x not in christ_syn else 'baby' for x in text]
+
+    royalty_syn = ['throne', 'crown', 'king', 'queen', 'majesty']
+    text = [x if x not in royalty_syn else 'crown' for x in text]
+
+    
 
     return text
 

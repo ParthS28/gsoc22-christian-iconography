@@ -26,6 +26,7 @@ dataset = ArtDLDataset(
 
 dataloader = DataLoader(dataset = dataset, shuffle=True, batch_size = 1)
 
+model.eval()
 df = pd.DataFrame(columns=['item', 'label', 'predicted'])
 for idx, (image, label, fname) in enumerate(tqdm(dataloader)):
     image = image.to(device)

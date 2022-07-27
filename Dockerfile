@@ -7,7 +7,7 @@ RUN apt-get install --assume-yes --no-install-recommends --quiet \
         python3-pip \
         ffmpeg
 
-RUN pip install --no-cache --upgrade pip setuptools
+RUN pip3 install --no-cache --upgrade pip setuptools
 
 WORKDIR /EmileMale
 

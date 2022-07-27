@@ -17,5 +17,4 @@ RUN ls -a
 
 RUN pip3 install -r requirements.txt
 
-
-ENTRYPOINT ["./run.sh"]
+RUN ./run.sh

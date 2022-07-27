@@ -9,14 +9,13 @@ RUN apt-get install --assume-yes --no-install-recommends --quiet \
 
 RUN pip install --no-cache --upgrade pip setuptools
 
-RUN pip3 install numpy \
-    scikit-learn \
-    torch \
-    nltk \
-    matplotlib \
-    h5py \
-    opencv-python
+WORKDIR /EmileMale
 
-ADD . /mypackage/
+ADD ./EmileMaleV1/ .
 
-ENTRYPOINT ["python", "-m", "mypackage.script"]
+RUN ls -a 
+
+RUN pip3 install -r requirements.txt
+
+
+ENTRYPOINT ["./run.sh"]

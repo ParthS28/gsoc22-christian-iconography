@@ -17,4 +17,4 @@ RUN ls -a
 
 RUN pip3 install -r requirements.txt
 
-RUN ./run.sh
+# RUN ./run.sh

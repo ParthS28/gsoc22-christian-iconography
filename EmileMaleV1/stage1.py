@@ -20,7 +20,7 @@ model.load_state_dict(torch.load("resnet/artDLresnet50_224x224.pt", map_location
 dataset = ArtDLDataset(
     data_dir = 'data/images',
     transform = transform,
-    labels_path = 'data/info2.csv',
+    labels_path = 'data/info.csv',
     set_type = 'train'
 )
 

@@ -1,6 +1,6 @@
 # EmileMaleV1
 
-Version 1 of the Emile Male pipeline. This document explains the input format, how to use and output format of this version of the pipeline.
+Version 1 of the Emile Male pipeline. This document explains the input format, how to use and output format of this version of the pipeline. This version of the pipeline is not recommended to be used as it comes with the data already stored in the files could be hassle to transfer data, instead check version 2.
 
 ## Input 
 
@@ -42,7 +42,7 @@ mv out2/ ../out2
 mv final.csv ../
 
 cd ..
-rm -rf emilmale
+rm -rf emilemale
 ```
 
 ## Output

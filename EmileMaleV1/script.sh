@@ -14,4 +14,4 @@ mv out2/ ../out2
 mv final.csv ../
 
 cd ..
-rm -rf emilmale
+rm -rf emilemale

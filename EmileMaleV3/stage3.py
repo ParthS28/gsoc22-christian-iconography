@@ -22,7 +22,7 @@ df = pd.DataFrame(columns=["item", "stage_1_prediction", "final_prediction"])
 df_in = pd.read_csv('out1.csv')
 items = df_in['item']
 
-classes = ['baby','person','angel','book','jar','crown','bird','crescent','flowers','crucifict','pear','skull']
+classes = ['baby','person','angel','book','jar','crown','bird','crescent','flowers','crucifict','pear','skull','lamb']
 for item in items:
     row = df_in[df_in['item']==item]
 

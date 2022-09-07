@@ -1,6 +1,6 @@
 # EmileMaleV4
 
-Version 4 of the Emile Male pipeline. This document explains the input format, how to use and output format of this version of the pipeline. To use this pipeline make sure that you have a directory of the name data/ with a subdirectory images/ which contains all the images. Labels of the images are not required.
+Version 4 of the Émile Mâle pipeline. This document explains the input format, how to use and output format of this version of the pipeline. To use this pipeline make sure that you have a directory of the name data/ with a subdirectory images/ which contains all the images. Labels of the images are not required.
 
 ## What's new?
 

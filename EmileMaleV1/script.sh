@@ -4,8 +4,8 @@ module load singularity/3.8.1
 
 mkdir emilemale
 cd emilemale
-rsync -az pas193@rider.case.edu:/mnt/rds/redhen/gallina/home/pas193/EmileMaleV1/ .
-rsync -az pas193@rider.case.edu:/mnt/rds/redhen/gallina/home/pas193/singularity/emilemalev1.sif .
+rsync -az <yourid>@rider.case.edu:/mnt/rds/redhen/gallina/home/pas193/EmileMaleV1/ .
+rsync -az <yourid>@rider.case.edu:/mnt/rds/redhen/gallina/home/pas193/singularity/emilemalev1.sif .
 
 singularity exec -e -B /mnt/rds/redhen/gallina/home/pas193/test/emilemale emilemalev1.sif ./run.sh
 

@@ -162,19 +162,15 @@ for image in images:
                     # print('prayer', dist)
                     scores[2]+=1
                     scores[4]+=1
-                    # scores[5]+=1
                     scores[6]+=1
                     scores[7]+=1
                 elif((r_horizontal_dist > 0.15 and r_vertical_dist < 0.2) and (l_horizontal_dist > 0.15 and l_vertical_dist < 0.2)):
                     # print('both hands extended')
                     scores[6]+=1
-                    # scores[0]+=1 #
                 elif((r_horizontal_dist > 0.15 and r_vertical_dist > 0.2) or (l_horizontal_dist > 0.15 and l_vertical_dist > 0.2)):
                     # print('extended hand')
                     scores[1]+=1
-                    # scores[4]+=1
                     scores[5]+=1
-                    # scores[6]+=1
                 # lying down - nose and shoulder on a similar height
                 elif(abs(nose[1] - ((right_shoulder[1] +left_shoulder[1]) / 2)) < 0.05):
                     # print('lying_down')

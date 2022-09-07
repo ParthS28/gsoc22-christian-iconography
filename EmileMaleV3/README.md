@@ -1,6 +1,10 @@
-# EmileMaleV2
+# EmileMaleV3
 
-Version 2 of the Emile Male pipeline. This document explains the input format, how to use and output format of this version of the pipeline. To use this pipeline make sure that you have a directory of the name data/ with a subdirectory images/ which contains all the images. Labels of the images are not required.
+## What's new?
+
+Updated embeddings and more trained YOLO. Does nothing new but makes the version 2 better.
+
+Version 3 of the Emile Male pipeline. This document explains the input format, how to use and output format of this version of the pipeline. To use this pipeline make sure that you have a directory of the name data/ with a subdirectory images/ which contains all the images. Labels of the images are not required.
 
 ## Input 
 
@@ -32,7 +36,7 @@ module load singularity/3.8.1
 mkdir emilemale
 cp -r data/ emilemale/
 cd emilemale
-rsync -az <yourid>@rider.case.edu:/mnt/rds/redhen/gallina/home/pas193/EmileMaleV2/ .
+rsync -az <yourid>@rider.case.edu:/mnt/rds/redhen/gallina/home/pas193/EmileMaleV3/ .
 rsync -az <yourid>@rider.case.edu:/mnt/rds/redhen/gallina/home/pas193/singularity/emilemalev1.sif .
 
 singularity exec -e -B /mnt/rds/redhen/gallina/home/pas193/test/emilemale emilemalev1.sif ./run.sh

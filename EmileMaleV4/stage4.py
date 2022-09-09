@@ -164,8 +164,10 @@ for image in images:
                     scores[4]+=1
                     scores[6]+=1
                     scores[7]+=1
+                # Extended hand can be identified if hand is at a vertical and horizontal distance from the respective shoulder 
                 elif((r_horizontal_dist > 0.15 and r_vertical_dist < 0.2) and (l_horizontal_dist > 0.15 and l_vertical_dist < 0.2)):
                     # print('both hands extended')
+                    # similar to a T-pose
                     scores[6]+=1
                 elif((r_horizontal_dist > 0.15 and r_vertical_dist > 0.2) or (l_horizontal_dist > 0.15 and l_vertical_dist > 0.2)):
                     # print('extended hand')
@@ -187,6 +189,6 @@ for image in images:
     scores.insert(0, image)
     
     df.loc[df.shape[0]] = scores
-df.round(5)
+
 df.to_csv('class_prediction.csv')
 

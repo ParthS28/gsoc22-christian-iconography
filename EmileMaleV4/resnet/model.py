@@ -47,7 +47,7 @@ class ArtDLClassifier(nn.Module):
     h = out.register_hook(self.activations_hook)
     out = self.stage4(out)
 
-    # h = out.register_hook(self.activations_hook) ##### If you want to get gradients at stage 4
+    # h = out.register_hook(self.activations_hook) ##### Uncomment if you want to get gradients at stage 4
 
     out = self.avgpool(out)
     
@@ -66,4 +66,4 @@ class ArtDLClassifier(nn.Module):
     out = self.stage2(out)
     return self.stage3(out)
     
-    # return self.stage4(out)
+    # return self.stage4(out)  ##### Uncomment if you want to get gradients at stage 4

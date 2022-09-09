@@ -32,10 +32,7 @@ for idx, (image, label, fname) in enumerate(tqdm(dataloader)):
     label = label.to(device)
     outputs = model(image).squeeze()
     pred = outputs.argmax(dim = -1, keepdim = True)
-    # print(outputs)
 
     df.loc[df.shape[0]] = [fname[0], pred.item()]
-    # if idx == 10:
-    #     break
 
 df.to_csv('out1.csv')

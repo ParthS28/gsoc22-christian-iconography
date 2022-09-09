@@ -1,9 +1,7 @@
 import albumentations as A
 from imgaug.augmentables.bbs import BoundingBox, BoundingBoxesOnImage
-# from bbaug import policies
 import cv2
 import os
-# from pascal_voc_writer import Writer
 from xml.dom import minidom
 import imgaug as ia
 import imgaug.augmenters as iaa
@@ -12,7 +10,6 @@ import random
 import copy
 import glob
 imagespath = 'all_data/'
-# random.seed(7)
 
 
 def readImage(filename):
@@ -59,14 +56,10 @@ def start():
             title, ext = os.path.splitext(os.path.basename(filename))
             print(title)
             image = readImage(filename)
-        # if filename.endswith(".txt"):
             if not os.path.exists('all_data/'+filename.split('.')[0]+'.txt'):
-                print('hi')
                 continue
-            # xmlTitle, txtExt = os.path.splitext(os.path.basename(filename))
             if True:
                 
-                # bboxes = getCoordinates(filename)
                 bboxes = readYolo(imagespath+filename.split('.')[0]+'.txt')
                 for i in range(0, 9):
                     img = copy.deepcopy(image)
@@ -83,7 +76,6 @@ def start():
                         print("bounding box issues")
                         continue
 
-                # bboxes = [[int(float(j)) for j in i] for i in bb]
 
 
 
@@ -153,84 +145,3 @@ def getTransform(loop):
 
 start()
 
-
-
-
-
-# import random
-# import os
-
-# import cv2
-# from matplotlib import pyplot as plt
-
-# import albumentations as A
-
-
-# BOX_COLOR = (255, 0, 0) # Red
-# TEXT_COLOR = (255, 255, 255) # White
-
-
-# def visualize_bbox(img, bbox, class_name, color=BOX_COLOR, thickness=2):
-#     """Visualizes a single bounding box on the image"""
-#     x_min, y_min, w, h = bbox
-#     x_min, x_max, y_min, y_max = int(x_min), int(x_min + w), int(y_min), int(y_min + h)
-   
-#     cv2.rectangle(img, (x_min, y_min), (x_max, y_max), color=color, thickness=thickness)
-    
-#     ((text_width, text_height), _) = cv2.getTextSize(class_name, cv2.FONT_HERSHEY_SIMPLEX, 0.35, 1)    
-#     cv2.rectangle(img, (x_min, y_min - int(1.3 * text_height)), (x_min + text_width, y_min), BOX_COLOR, -1)
-#     cv2.putText(
-#         img,
-#         text=class_name,
-#         org=(x_min, y_min - int(0.3 * text_height)),
-#         fontFace=cv2.FONT_HERSHEY_SIMPLEX,
-#         fontScale=0.35, 
-#         color=TEXT_COLOR, 
-#         lineType=cv2.LINE_AA,
-#     )
-#     return img
-
-
-# def visualize(image, bboxes, category_ids, category_id_to_name):
-#     img = image.copy()
-#     for bbox, category_id in zip(bboxes, category_ids):
-#         class_name = category_id_to_name[category_id]
-#         img = visualize_bbox(img, bbox, class_name)
-#     plt.figure(figsize=(12, 12))
-#     plt.axis('off')
-#     plt.imshow(img)
-
-
-# image = cv2.imread('images/0a81ec0f-f103-443b-bfe9-1e3dd05306d5_7bacdafe-bf4c-460f-bd0c-991ac1d2d839.jpg')
-# image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-
-# if not os.path.exists('labels/'+'0a81ec0f-f103-443b-bfe9-1e3dd05306d5_7bacdafe-bf4c-460f-bd0c-991ac1d2d839'+'.txt'):
-#     print('out2/exp/labels/'+image.split('.')[0]+'.txt not present')
-        
-
-# with open('labels/'+'0a81ec0f-f103-443b-bfe9-1e3dd05306d5_7bacdafe-bf4c-460f-bd0c-991ac1d2d839'+'.txt', 'r') as f:
-#     lines = f.readlines()
-
-# bbox = []
-# labels = []
-# for line in lines:
-#     # labels.append(str(line.split(' ')[0]))
-#     bbox.append([line.split(' ')[1], line.split(' ')[2], line.split(' ')[3], line.split(' ')[4], line.split(' ')[0]])
-
-# # ids = [0,1,2,3,4,5,6,7,8,9,10,11,12]
-# category_id_to_name = {0: 'baby', 1: 'person', 2: 'angel', 3: 'book', 4: 'jar', 5: 'crown', 6: 'bird', 7: 'crescent', 8: 'flowers', 9: 'crucifict', 10: 'pear', 11: 'skull', 12: 'lamb'}
-
-# ids = ['baby','person','angel','book','jar','crown','bird','crescent','flowers','crucifict','pear','skull', 'lamb']
-# transform = A.Compose(
-#     [A.HorizontalFlip(p=0.5)],
-#     bbox_params=A.BboxParams(format='yolo'),
-# )
-
-# random.seed(7)
-# transformed = transform(image=image, bboxes=bbox)
-# visualize(
-#     transformed['image'],
-#     transformed['bboxes'],
-#     transformed['category_ids'],
-#     category_id_to_name,
-# )

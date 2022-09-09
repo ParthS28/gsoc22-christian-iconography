@@ -50,6 +50,5 @@ for item in items:
         df.loc[df.shape[0]] = [item, row['predicted'].item(), 0]
     else:
         df.loc[df.shape[0]] = [item, row['predicted'].item(), row['predicted'].item()]
-    # break
 
 df.to_csv('out3.csv')
